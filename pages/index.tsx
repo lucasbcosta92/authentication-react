@@ -1,6 +1,3 @@
-import { GetServerSideProps } from "next";
-import { useRouter } from "next/dist/client/router";
-import { parseCookies } from "nookies";
 import { FormEvent, useContext, useState } from "react";
 import { withSSRGuest } from "../utils/withSSRGuest";
 import { AuthContexts } from "./../contexts/AuthContexts";
@@ -8,8 +5,6 @@ import { AuthContexts } from "./../contexts/AuthContexts";
 export default function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const router = useRouter();
 
   const { signIn } = useContext(AuthContexts);
 
@@ -22,8 +17,6 @@ export default function Home() {
     };
 
     await signIn(data);
-
-    router.push("/dashboard");
   }
 
   return (

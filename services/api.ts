@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { parseCookies, setCookie } from "nookies";
-import { singOut } from "../contexts/AuthContexts";
+import { signOut } from "../contexts/AuthContexts";
 import { AuthTokenError } from "./../errors/AuthTokenError";
 
 let isRefreshing = false;
@@ -67,7 +67,7 @@ export function setupAPIClient(ctx = undefined) {
 
                 // Checando se isso esta sendo executado do lado do cliente ou servidor
                 if (process.browser) {
-                  singOut();
+                  signOut();
                 }
               })
               .finally(() => {
@@ -94,7 +94,7 @@ export function setupAPIClient(ctx = undefined) {
 
           // Checando se isso esta sendo executado do lado do cliente ou servidor
           if (process.browser) {
-            singOut();
+            signOut();
           } else {
             // Caso seja do server, disparo um erro que criei p/ ser tratado no SSR
             return Promise.reject(new AuthTokenError());

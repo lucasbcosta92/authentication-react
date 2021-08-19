@@ -14,9 +14,6 @@ export function validateUserPermissions({
   permissions,
   roles,
 }: ValidationUserPermissionsParams) {
-  console.log("--------------------------------------------------");
-  console.log(user, permissions, roles);
-
   if (permissions?.length > 0) {
     // Checando se o user tem todas as permissões
     const hasAllPermissions = permissions.every((permissions) =>
