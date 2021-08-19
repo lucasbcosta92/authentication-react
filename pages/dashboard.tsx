@@ -15,7 +15,7 @@ export default function Dashboard() {
         console.log(response);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }, []);
 
@@ -31,10 +31,7 @@ export default function Dashboard() {
 
 export const getServerSideProps = withSSRAuth(async (ctx) => {
   const apiClient = setupAPIClient(ctx);
-
   const response = await apiClient.get("/me");
-
-  console.log(response);
 
   return {
     props: {},

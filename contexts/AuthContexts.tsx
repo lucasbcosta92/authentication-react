@@ -84,7 +84,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       api.defaults.headers["Authorization"] = `Bearer ${token}`;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
